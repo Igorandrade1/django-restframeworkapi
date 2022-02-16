@@ -1,10 +1,7 @@
-from urllib.parse import urlparse
-from django.urls import path
-from app.views import Pessoa_methodos, Pessoa_methodos_seg
+from app.views import PessoaViewSets
 
+from rest_framework.routers import DefaultRouter
 
-urlpatterns = [
-    path('', Pessoa_methodos.as_view()),
-    path('<int:pk>/', Pessoa_methodos_seg.as_view())
-
-]
+router = DefaultRouter()
+router.register(r'', PessoaViewSets)
+urlpatterns = router.urls
